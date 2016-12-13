@@ -1,0 +1,280 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  user-select: none;
+}
+.button(){
+  
+  /* element button*/
+  .el-button{
+    display: inline-block;
+    line-height: 1;
+    white-space: nowrap;
+    cursor: pointer;
+    background: #fff;
+    border: 1px solid #C0CCDA;
+    color: #1F2D3D;
+    text-align: center;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 10px 15px;
+    font-size: 14px;
+    border-radius: 4px;
+  }
+
+  .el-button--primary{
+    color: #fff;
+    background-color: #20a0ff;
+    border-color: #20a0ff;
+  }
+
+  .el-button--success{
+    color: #fff;
+    background-color: #13ce66;
+    border-color: #13ce66;
+  }
+
+  .el-button+.el-button{
+    margin-left:10px;
+  }
+}
+header {
+  width: 100%;
+  height: 55px;
+  line-height: 55px;
+  color: #fff;
+  background: #ffffff;
+  padding: 0 30px;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #E7E8E7;
+
+  .title {
+    font-size: 24px;
+    color: #9B9B9B;
+  }
+  .button()
+}
+
+.container {
+  display: flex;
+  max-height: 100%;
+  min-height: 100%;
+  padding-top: 55px;
+  overflow: auto;
+
+  .module-box {
+    flex: 0 0 230px;
+    border-right: 1px solid #E7E8E7;
+
+    li {
+      margin: 30px;
+    }
+
+    .title {
+      background: #eee;
+      font-size: 15px;
+      margin-bottom: 5px;
+      padding: 12px 10px;
+      border-bottom: 1px solid #E7E8E7;
+    }
+    .items {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+      padding: 0 14px;
+      .item {
+        user-select: none;
+        min-width: 95px;
+        height: 85px;
+        border: 1px solid #E7E8E7;
+        margin: 5px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: column;
+        cursor: move;
+        font-size: 13px;
+        i {
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+
+  .render-container {
+    min-width: 470px;
+    flex: 1;
+    background: #F7F7F7;
+
+    overflow-y: auto;
+    .active {
+        outline: 2px solid #2196F3;
+    }
+
+    .body {
+      width: 375px;
+      min-height: 667px;
+      background: #fff url("./assets/img/phone-head.png") no-repeat;
+      padding-top: 64px;
+      margin: 20px auto 30px;
+      user-select: none;
+      box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.30);
+      position: relative;
+      .page-title {
+        color: #fff;
+        border: none;
+        font-size: 20px;
+        text-align: center;
+        position: absolute;
+        top: 27px;
+        left: 73px;
+        width: 210px;
+        background: transparent;
+      }
+      
+      .item {
+        cursor: pointer;
+        position: relative;
+        &.current {
+          outline: 2px solid #2196F3;
+          z-index: 998;
+        }
+      }
+      .el-tooltip__rel{
+        cursor:move;
+      }
+      .component {
+        &.active.top {
+          &:before {
+            width: 98%;
+            height: 20px;
+            line-height: 20px;
+            margin: 0 auto;
+            font-size: 14px;
+            text-align: center;
+            display: block;
+            content: '放在这';
+            border: 2px dashed #2196F3;
+            background: #E4F3FE;
+            padding: 5px 0;
+            color: #2196F3;
+          }
+        }
+        &.active.bottom {
+          &:after:extend(.component.active.top:before) {
+          }
+        }
+      }
+      div{
+        cursor: move;
+      }
+    }
+    
+    .ph-empty{
+      width: 100%;
+      color: #aaa;
+      text-align: center;
+      padding: 10px 0;
+      &.dashed{
+        border:1px dashed #ddd;
+      }
+    }    
+  }
+
+  .properties {
+    flex: 0 0 450px;
+    position: relative;
+    border-left: 1px solid #E7E8E7;
+    overflow: auto;
+
+    h2{
+      margin:12px 15px;
+    }
+
+    .form-footer{
+      margin-top:6px;
+    }
+
+    .form-item__label{
+      text-align: right;
+      vertical-align: middle;
+      float: left;
+      font-size: 14px;
+      color: #5e6d82;
+      line-height: 1;
+      padding: 11px 12px 11px 0;
+      box-sizing: border-box;
+    }
+
+    .form-item__content{
+      input{
+        display: block;
+        padding: 3px 10px;
+        width: 100%;
+        height: 36px;
+        color: #1f2d3d;
+        background-color: #fff;
+        border: 1px solid #C0CCDA;
+        border-radius: 4px;
+        outline: 0;
+        font-size: inherit;
+        line-height: normal;
+      }
+    }
+    .button()
+  }
+
+  
+
+  .module-box,
+  .render-container {
+    user-select: none;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+
+    a,
+    img {
+      user-select: none;
+      -webkit-user-drag: none;
+      -khtml-user-drag: none;
+      -moz-user-drag: none;
+      -o-user-drag: none;
+      user-drag: none;
+    }
+  }
+}
+.preview-dialog {
+  .preview-frame {
+    width: 375px;
+    min-height: 667px;
+    background: #fff url("./assets/img/phone-head.png") no-repeat;
+    padding-top: 64px;
+    margin: 20px auto 30px;
+    user-select: none;
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.30);
+    position: relative;
+    .page-title {
+      color: #fff;
+      border: none;
+      font-size: 20px;
+      text-align: center;
+      position: absolute;
+      top: 27px;
+      left: 73px;
+      width: 210px;
+      background: transparent;
+    }
+    iframe {
+      width: 100%;
+      height: 667px;
+    }
+  }
+}
+
