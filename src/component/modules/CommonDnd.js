@@ -1,5 +1,6 @@
 import * as appActions from '../../actions/app';
 import { findDOMNode } from 'react-dom';
+import { cloneDeep } from 'lodash';
 
 function beginDrag(config) {
   return function (props, monitor, component) {
@@ -7,7 +8,7 @@ function beginDrag(config) {
       id: Math.random().toString(28).substr(2),
       componentName: config.componentName,
       displayName:config.displayName,
-      property:config.property,
+      properties:cloneDeep(config.properties),
       props: props
     }
   }

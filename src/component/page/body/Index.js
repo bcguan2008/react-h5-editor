@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import Container from './Container';
-import Properties from './PropertyContainer';
-import ModuleText from '../../modules/ModuleText/';
+import Properties from './Property/';
+
+import ToolBar from './ToolBar/Index';
 
 import { connect } from 'react-redux';
 import * as appActions from '../../../actions/app'
@@ -16,18 +17,7 @@ class Body extends Component {
     console.log('page/body/index',components)
     return (
       <div className="container">
-        <div className="module-box">
-          <div className="modules">
-            <div className="title">测试</div>
-            <ul className="items">
-              <div className="el-tooltip" >
-                <div className="el-tooltip__rel">
-                    <ModuleText store={store}/>
-                </div>
-              </div>
-            </ul>
-          </div>
-        </div>
+        <ToolBar store={store}/>
 
         <div className="render-container">
           <Container 

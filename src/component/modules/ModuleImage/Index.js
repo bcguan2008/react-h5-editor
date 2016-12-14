@@ -51,7 +51,7 @@ class Module extends Component {
     /**
      * app 里和 组件库的display 不一样
      */
-    let dom = (() => {
+    let dom = ((displayName) => {
       if (previewInApp) {
         return (
           <div className={styles} onMouseDown={this.moduleClick.bind(this) } >
@@ -63,10 +63,10 @@ class Module extends Component {
       } else {
         return (
           <li className="item">
-            <i className="el-icon-edit"></i> {Config.displayName}
+            <i className="el-icon-edit"></i> {displayName}
           </li>)
       }
-    })()
+    })(Config.displayName)
 
     return connectDragSource(connectDropTarget(dom, { dropEffect: 'copy' }))
   }
