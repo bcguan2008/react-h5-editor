@@ -1,23 +1,23 @@
 import React, {Component, PropTypes} from 'react';
 
-class ModuleText extends Component {
+class Source extends Component {
   constructor() {
     super()
   }
 
   render() {
-    let {id, text} = this.props;
-    if (!text) {
-      text = '测试文本框';
-    }
+    let {id, property} = this.props;
+    
+    console.log('./module/moduleText/source',this.props)
+
     return (
       <div className="text">
         <div id={id} className="ph-empty dashed">
-          {text}
+          {property.text}
         </div>
       </div>
     )
   }
 }
 
-export default ModuleText;
+export default Source;
