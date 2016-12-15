@@ -6,6 +6,6 @@ h5 editor base on react
 npm i -d 
 npm start
 ```
+## Preview
 
-
-
+<img src="docs/image/test.png"  alt="preview" align=center />
