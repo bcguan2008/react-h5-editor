@@ -71,6 +71,11 @@ function hover(){
   return function(props, monitor, component){
     const dragIndex = monitor.getItem().index;
     const hoverIndex = props.index;
+    
+    if(typeof dragIndex ==='undefined' || typeof hoverIndex ==='undefined'){
+      return ;
+    }
+
     // Don't replace items with themselves
     if (dragIndex === hoverIndex) {
       return;
@@ -101,6 +106,7 @@ function hover(){
     if (dragIndex > hoverIndex && hoverClientY > hoverMiddleY) {
       return;
     }
+    console.log('dispatch',[dragIndex,hoverIndex])
     // Time to actually perform the action
     store.dispatch(appActions.MoveComponent(dragIndex,hoverIndex));
     // Note: we're mutating the monitor item here!
