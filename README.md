@@ -8,4 +8,4 @@ npm start
 ```
 ## Preview
 
-<img src="docs/image/test.png"  alt="preview" align=center />
+<img src="docs/image/preview.png"  alt="preview" align=center />
