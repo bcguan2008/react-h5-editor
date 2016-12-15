@@ -5,15 +5,16 @@ class Source extends Component {
     super()
   }
 
+  createMarkup(property) {
+    return {__html: property.text};
+  }
+
   render() {
     let {id, property} = this.props;
-    
-    console.log('./module/moduleText/source',this.props)
 
     return (
       <div className="text">
-        <div id={id} className="ph-empty dashed">
-          {property.text}
+        <div id={id} className="ph-empty dashed" dangerouslySetInnerHTML={this.createMarkup(property)} >
         </div>
       </div>
     )

@@ -23,7 +23,6 @@ export default class PropertyContainer extends Component {
       })
     }
 
-    console.log('/page/body/property/propertyContainer',currentComponent)
     return (
       <div>
         <h2>{currentComponent.displayName}属性设置</h2>
@@ -31,7 +30,6 @@ export default class PropertyContainer extends Component {
           <div className="editor-container">
             <div className="form">
               {propertyItems}
-              
             </div>
           </div>
         </div>

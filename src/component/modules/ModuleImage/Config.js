@@ -1,12 +1,12 @@
 const componentKey = 'Image';
 const componentName = 'ModuleImage';
-const displayName = '图片设置';
+const displayName = '图片';
 const properties = [
   {
     id: 1,
     propertyName: '图片地址',
     propertyType: 'input',
-    value: 'http://h5.ffan.com/zzq/h5/parkingCoupon/JYBS1xiaoshi/images/banner-offline.jpg',
+    value:'http://www.ffan.com/new/images/about/banner.jpg',
     propKey: 'src'
   },
   {

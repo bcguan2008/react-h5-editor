@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import { DragSource } from 'react-dnd';
 import { ModuleType } from '../../const';
 import { DropTarget } from 'react-dnd';
+import {AppDragKey} from '../../const/'
 import RenderModule from '../../modules/RenderModule';
 
 function collect(connect, monitor) {
@@ -24,14 +25,13 @@ class Container extends Component {
       'body': true,
       'active': isOver
     });
-    console.log('page/body/container',components)
     /**
      * 根据传入json，生成组件渲染
      */
     let dynamicComponents
     if(components && components.length){
-      dynamicComponents = components.map(component=>{
-        return RenderModule(component)
+      dynamicComponents = components.map((component,index)=>{
+        return RenderModule(component,true,index)
       })
     }
 
@@ -51,4 +51,4 @@ Container.propTypes = {
   canDrop: PropTypes.bool.isRequired,
 };
 
-export default DropTarget(ModuleType.Text, {}, collect)(Container);
+export default DropTarget(AppDragKey, {}, collect)(Container);

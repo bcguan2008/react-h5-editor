@@ -1,3 +1,4 @@
 export default {
-  Text:'ModuleText'
+  Text:'ModuleText',
+  Image:'ModuleImage'
 }

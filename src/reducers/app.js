@@ -1,5 +1,6 @@
 import * as types from '../actions/app';
 import {findIndex} from 'lodash';
+import update from 'react/lib/update';
 
 const initialState = [];
 
@@ -23,7 +24,15 @@ export default function app(state = initialState, action) {
         }
         return component;
       })
-      
+    case types.MOVE_COMPONENT:
+      const {components} = state;
+      const dragComponent = state[action.source];
+      return update(state,{
+          $splice: [
+            [action.source, 1],
+            [action.target, 0, dragComponent]
+          ]
+      })
     default:
       return state;
   }

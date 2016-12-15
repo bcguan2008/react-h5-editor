@@ -1,10 +1,11 @@
 import React, {Component, PropTypes} from 'react';
-import { ModuleType } from '../../const/';
+import { ModuleType ,AppDragKey} from '../../const/';
 import { DragSource, DropTarget } from 'react-dnd';
 import * as CommonDnd from '../CommonDnd';
 import Source from './Source';
 import * as Config from './Config';
 import classNames from 'classnames';
+import { findDOMNode } from 'react-dom';
 import configureStore from '../../../store/configureStore';
 import * as appActions from '../../../actions/app';
 const store = configureStore({},'APP');
@@ -15,8 +16,7 @@ const moduleSource = {
 };
 
 const moduleTarget = {
-  hover(props, monitor, component) {
-  }
+  hover:CommonDnd.hover()
 }
 
 function collectTarget(connect) {
@@ -78,5 +78,5 @@ Module.propTypes = {
 };
 
 export default
-  DropTarget(ModuleType[Config.componentKey], moduleTarget, collectTarget)
-    (DragSource(ModuleType[Config.componentKey], moduleSource, CommonDnd.collectSource())(Module))
+  DropTarget(AppDragKey, moduleTarget, collectTarget)
+    (DragSource(AppDragKey, moduleSource, CommonDnd.collectSource())(Module))

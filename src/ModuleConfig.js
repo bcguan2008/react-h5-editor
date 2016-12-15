@@ -1,6 +1,7 @@
 export default [
   {
     categoryName:'常规',
+    categoryId:1,
     categoryConfig : [
        {
         componentKey: 'Text',
@@ -25,7 +26,8 @@ export default [
             id: 1,
             propertyName: '图片地址',
             propertyType: 'input',
-            value: 'http://h5.ffan.com/zzq/h5/parkingCoupon/JYBS1xiaoshi/images/banner-offline.jpg',
+            //value: 'http://h5.ffan.com/zzq/h5/parkingCoupon/JYBS1xiaoshi/images/banner-offline.jpg',
+            value:'http://www.ffan.com/new/images/about/banner.jpg',
             propKey: 'src'
           },
           {

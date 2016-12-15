@@ -6,11 +6,12 @@ class Source extends Component {
   }
 
   render() {
-    let {id, src,href} = this.props;
-    
+    const {id, property} = this.props;
+    let src = property.src,
+        href = property.href;
     return (
       <div className="image">
-        <img id={} src={src} href={href} />
+        <img id={id} src={src} href={href} />
       </div>
     )
   }
