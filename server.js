@@ -1,7 +1,7 @@
 var webpack = require('webpack');
 var WebpackDevServer = require('webpack-dev-server');
 var colorsSupported = require('supports-color');
-var config = require('./webpack.config');
+var config = require('./build/webpack.dev.config');
 
 let port = 3000;
 

@@ -5,12 +5,23 @@ class Source extends Component {
     super()
   }
 
+  combineProperties(properties){
+    let property = {};
+    properties.forEach(p=>{
+      return property[p.propKey] = p.value;
+    })
+
+    return property;
+  }
+
   createMarkup(property) {
     return {__html: property.text};
   }
 
   render() {
-    let {id, property} = this.props;
+    let {id, properties} = this.props;
+
+    let property = this.combineProperties(properties);
 
     return (
       <div className="text">

@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { DragSource } from 'react-dnd';
 import { ModuleType } from '../../const';
 import { DropTarget } from 'react-dnd';
-import {AppDragKey} from '../../const/'
+import { AppDragKey } from '../../const/'
 import RenderModule from '../../modules/RenderModule';
 
 function collect(connect, monitor) {
