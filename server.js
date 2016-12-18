@@ -1,21 +1,14 @@
-var webpack = require('webpack');
-var WebpackDevServer = require('webpack-dev-server');
-var colorsSupported = require('supports-color');
-var config = require('./build/webpack.dev.config');
+var express = require('express'),
+	path = require('path'),
+	app = express(),
+	port = 9123;
 
-let port = 3000;
 
-new WebpackDevServer(webpack(config), {
-  publicPath: config.output.publicPath,
-  hot: true,
-  stats: {
-    colors: colorsSupported
-  },
-  historyApiFallback: true
-}).listen(port, 'localhost', function (err, result) {
-  if (err) {
-    return console.log(err);
-  }
+app.use(express.static(path.join(__dirname,'dist/client/')));
 
-  console.log('Listening at http://localhost:/' + port);
+app.post('/create',function(req,res){
+	res.send('POST request to homepage');
 });
+
+app.listen(port);
+console.log('Server is Up and Running at Port : ' + port);

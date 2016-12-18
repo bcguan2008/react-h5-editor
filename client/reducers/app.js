@@ -15,7 +15,6 @@ export default function app(state = initialState, action) {
         return component;
       })
     case types.CHANGE_PROPERTY:
-      debugger;
       return state.map(component=>{
         if(component.id === action.property.componentId){
            component.properties = component.properties.map(property=>{

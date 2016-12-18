@@ -1,10 +1,13 @@
 import React, {Component} from 'react';
-import Header from './header/';
-import Body from './body/'
+import {compose} from 'redux';
 import HTML5Backend from 'react-dnd-html5-backend';
 import { DragDropContext } from 'react-dnd';
-import configureStore from '../../store/configureStore';
-const store = configureStore({},'APP');
+import { connect } from 'react-redux';
+
+import * as appActions from '../../actions/app'
+import Header from './header/';
+import Body from './body/'
+
 
 class Page extends Component {
   constructor() {
@@ -12,13 +15,21 @@ class Page extends Component {
   }
 
   render() {
+    const {store,components} = this.props;
     return (
       <div>
-        <Header />
-        <Body store={store}/>
+        <Header store={store} components={components}/>
+        <Body store={store} components={components}/>
       </div>
     )
   }
 }
 
-export default DragDropContext(HTML5Backend)(Page);
+export default compose(
+  connect(state => ({
+    components: state.app
+  }),
+    appActions
+  ),
+  DragDropContext(HTML5Backend)
+)(Page);

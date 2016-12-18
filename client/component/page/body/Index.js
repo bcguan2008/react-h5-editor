@@ -1,11 +1,7 @@
 import React, {Component} from 'react';
 import Container from './Container';
 import Properties from './Property/';
-
 import ToolBar from './ToolBar/Index';
-
-import { connect } from 'react-redux';
-import * as appActions from '../../../actions/app'
 
 class Body extends Component {
   constructor() {
@@ -38,8 +34,4 @@ class Body extends Component {
   }
 }
 
-export default connect(state => ({
-    components: state.app
-  }),
-    appActions
-  )(Body);
+export default Body;
