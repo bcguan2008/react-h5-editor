@@ -6,7 +6,7 @@ import Source from './Source';
 import Config from './Config';
 import classNames from 'classnames';
 import configureStore from '../../../store/configureStore';
-import * as appActions from '../../../actions/app';
+import * as appComponents from '../../../actions/components';
 const store = configureStore({},'APP');
 
 const moduleSource = {
@@ -28,7 +28,15 @@ class Module extends Component {
   }
 
   moduleClick() {
-    store.dispatch(appActions.ShowProperty(this.props.component));
+    store.dispatch(appComponents.ShowProperty(this.props.component));
+  }
+
+  combineProperties(properties){
+    let property = {};
+    properties.forEach(p=>{
+      return property[p.propKey] = p.value;
+    })
+    return property;
   }
 
   render() {
@@ -39,13 +47,14 @@ class Module extends Component {
     /**
      * app 里和 组件库的display 不一样
      */
-    let dom = ((displayName) => {
+    let dom = (($this,displayName) => {
       if (previewInApp) {
+        let property = $this.combineProperties(component.properties);
         return (
           <div className={styles} onMouseDown={this.moduleClick.bind(this) } >
             <Source
               id={component.id}
-              properties = {component.properties}
+              property = {property}
               />
           </div>)
       } else {
@@ -54,7 +63,7 @@ class Module extends Component {
             <i className="el-icon-edit"></i> {displayName}
           </li>)
       }
-    })(Config.displayName)
+    })(this,Config.displayName)
 
     return connectDragSource(connectDropTarget(dom, { dropEffect: 'copy' }))
   }

@@ -4,7 +4,8 @@ import HTML5Backend from 'react-dnd-html5-backend';
 import { DragDropContext } from 'react-dnd';
 import { connect } from 'react-redux';
 
-import * as appActions from '../../actions/app'
+import componentsActions from '../../actions/components';
+import appActions from '../../actions/app';
 import Header from './header/';
 import Body from './body/'
 
@@ -15,11 +16,11 @@ class Page extends Component {
   }
 
   render() {
-    const {store,components} = this.props;
+    const {store,components,app} = this.props;
     return (
       <div>
-        <Header store={store} components={components}/>
-        <Body store={store} components={components}/>
+        <Header store={store} components={components} app={app}/>
+        <Body store={store} components={components} app={app}/>
       </div>
     )
   }
@@ -27,9 +28,11 @@ class Page extends Component {
 
 export default compose(
   connect(state => ({
-    components: state.app
+    app:state.app,
+    components: state.components
   }),
-    appActions
+    appActions,
+    componentsActions
   ),
   DragDropContext(HTML5Backend)
 )(Page);

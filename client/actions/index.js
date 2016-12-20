@@ -1,5 +1,7 @@
-import appActions from './app';
+import * as appActions from './app';
+import * as componentsActions from './components';
 
 export {
-  appActions
+  appActions,
+  componentsActions
 }

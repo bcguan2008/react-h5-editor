@@ -7,11 +7,14 @@ export default class Header extends Component {
   }
 
   save(){
-    return Http.post('/create',this.props.components);
+    return Http.post('/create',{
+      title:this.props.app.title,
+      components:this.props.components
+    });
   }
 
   render() {
-    const {components } = this.props;
+    const {components,app } = this.props;
 
     return (
       <header>

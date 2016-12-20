@@ -5,20 +5,8 @@ class Source extends Component {
     super()
   }
 
-  combineProperties(properties){
-    let property = {};
-    properties.forEach(p=>{
-      return property[p.propKey] = p.value;
-    })
-
-    return property;
-  }
-
   render() {
-    const {id, properties} = this.props;
-
-    let property = this.combineProperties(properties);
-
+    const {id, property} = this.props;
     let src = property.src,
         href = property.href;
     return (

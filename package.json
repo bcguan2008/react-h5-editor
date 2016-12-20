@@ -46,7 +46,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config ./build/webpack.client.config",
-    "start": "node server.dev"
+    "dev": "node server.dev",
+    "start":"node server"
   },
   "author": "",
   "license": "ISC"

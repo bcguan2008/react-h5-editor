@@ -9,10 +9,11 @@ class Body extends Component {
   }
 
   render() {
-    const {store,components} = this.props;
+    const {store,components,app} = this.props;
+    console.log('page/body/index',app)
     return (
       <div className="container">
-        <ToolBar store={store}/>
+        <ToolBar store={store} app={app}/>
 
         <div className="render-container">
           <Container 
@@ -22,6 +23,7 @@ class Body extends Component {
             components= {components}
             canDrop={true}
             isOver={false}
+            app={app}
             />
         </div>
         <div className="properties">

@@ -24,12 +24,21 @@ export default class PropertyContainer extends Component {
     }
 
     return (
+      /**
+       * <div className="footer">
+          <button type="button" className="el-button el-button--success" onClick={this.saveProperty}>
+            <i className="el-icon-check"></i>
+            <span>应用</span>
+          </button>
+        </div>
+       */
       <div>
         <h2>{currentComponent.displayName}属性设置</h2>
         <div className="contents">
           <div className="editor-container">
             <div className="form">
               {propertyItems}
+              
             </div>
           </div>
         </div>

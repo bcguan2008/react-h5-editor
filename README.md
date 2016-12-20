@@ -4,7 +4,7 @@ h5 editor base on react
 ## Start
 ```sh
 npm i -d 
-npm start
+npm run dev
 ```
 ## Preview
 

@@ -4,7 +4,6 @@ import ModuleText from './ModuleText/';
 import ModuleImage from './ModuleImage/'
 
 export default function (component,previewInApp,index) {
-
   switch(component.componentName){
     case ModuleType.Text :
       return (<ModuleText

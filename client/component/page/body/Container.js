@@ -5,6 +5,7 @@ import { ModuleType } from '../../const';
 import { DropTarget } from 'react-dnd';
 import { AppDragKey } from '../../const/'
 import RenderModule from '../../modules/RenderModule';
+import * as appActions from '../../../actions/app';
 
 function collect(connect, monitor) {
   return {
@@ -19,8 +20,13 @@ class Container extends Component {
     super()
   }
 
+  changeTitle(event){
+    this.props.store.dispatch(appActions.changeTitle(event.target.value));
+  }
+
   render() {
-    const { x, y, connectDropTarget, isOver, canDrop, components } = this.props;
+    const { x, y, connectDropTarget, isOver, canDrop, components,app ,store} = this.props;
+
     const styles = classNames({
       'body': true,
       'active': isOver
@@ -37,7 +43,7 @@ class Container extends Component {
 
     return connectDropTarget(
       <div className={styles} style={{ position: 'relative' }}>
-        <input type="text" className="page-title animated" />
+        <input type="text" className="page-title animated" value={app.title} onChange={this.changeTitle.bind(this)}  />
         { dynamicComponents }
       </div>
     )

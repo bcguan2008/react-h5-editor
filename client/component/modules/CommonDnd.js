@@ -1,9 +1,8 @@
-import * as appActions from '../../actions/app';
+import {componentsActions} from '../../actions/'
+
 import { findDOMNode } from 'react-dom';
 import { cloneDeep } from 'lodash';
 import configureStore from '../../store/configureStore';
-
-const store = configureStore({},'APP');
 
 function newComponent(config,index){
   return {
@@ -51,7 +50,8 @@ function endDrag() {
        */
       const item = monitor.getItem();
       const dropResult = monitor.getDropResult();
-      store.dispatch(appActions.AddComponent(item));
+      let store = configureStore({},'APP'); 
+      store.dispatch(componentsActions.AddComponent(item));
     }
 
   }
@@ -106,9 +106,9 @@ function hover(){
     if (dragIndex > hoverIndex && hoverClientY > hoverMiddleY) {
       return;
     }
-    console.log('dispatch',[dragIndex,hoverIndex])
+    let store = configureStore({},'APP');
     // Time to actually perform the action
-    store.dispatch(appActions.MoveComponent(dragIndex,hoverIndex));
+    store.dispatch(componentsActions.MoveComponent(dragIndex,hoverIndex));
     // Note: we're mutating the monitor item here!
     // Generally it's better to avoid mutations,
     // but it's good here for the sake of performance
