@@ -6,15 +6,16 @@ export default class Header extends Component {
     super()
   }
 
-  save(){
-    return Http.post('/create',{
-      title:this.props.app.title,
-      components:this.props.components
+  save() {
+    return Http.post('/create', {
+      tranId: 1,
+      title: this.props.app.title,
+      components: this.props.components
     });
   }
 
   render() {
-    const {components,app } = this.props;
+    const {components, app } = this.props;
 
     return (
       <header>
@@ -23,7 +24,7 @@ export default class Header extends Component {
           <button type="button" className="el-button el-button--primary" disabled>
             <i className="el-icon-document"></i><span>预览</span></button>
 
-          <button type="button" onClick={this.save.bind(this)} className="el-button el-button--success">
+          <button type="button" onClick={this.save.bind(this) } className="el-button el-button--success">
             <i className="el-icon-check"></i><span>保存</span></button>
         </div>
       </header>
