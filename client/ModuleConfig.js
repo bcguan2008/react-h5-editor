@@ -1,3 +1,6 @@
+/**
+ * 该文件具体内容后续可以存储在数据库（通过数据库生成）
+ */
 export default [
   {
     categoryName:'常规',
@@ -16,7 +19,16 @@ export default [
             propKey: 'text'
           }
         ],
+        styles:`.ph-empty{
+  color: #aaa;
+  text-align: center;
+  padding: 10px 0;
+  &.dashed{
+    border:1px dashed #ddd;
+  }
+}`,
         source:`import React, {Component, PropTypes} from 'react';
+import './Styles.less';
 
 class Source extends Component {
   constructor() {

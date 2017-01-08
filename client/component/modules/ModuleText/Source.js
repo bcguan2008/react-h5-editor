@@ -1,4 +1,5 @@
 import React, {Component, PropTypes} from 'react';
+import './Styles.less';
 
 class Source extends Component {
   constructor() {

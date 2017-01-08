@@ -23,7 +23,8 @@ let dests= (()=>{
       destFolder.push({
         componentPath:componentPath,
         Config:`export default ${JSON.stringify(moduleConfig)}`,
-        Source:component.source
+        Source:component.source,
+        Styles:component.styles?component.styles:''
       });
     })
   });

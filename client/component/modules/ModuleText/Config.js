@@ -1,1 +1,1 @@
-export default {"componentKey":"Text","componentName":"ModuleText","displayName":"文本","properties":[{"id":1,"propertyName":"文本","propertyType":"input","value":"测试文本框","propKey":"text"}]}
+export default {"componentKey":"Text","componentName":"ModuleText","displayName":"文本","properties":[{"id":1,"propertyName":"文本","propertyType":"input","value":"测试文本框","propKey":"text"}],"styles":".ph-empty{\n  color: #aaa;\n  text-align: center;\n  padding: 10px 0;\n  &.dashed{\n    border:1px dashed #ddd;\n  }\n}"}

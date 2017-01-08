@@ -1,7 +1,10 @@
-var bodyParser = require('body-parser');
-var template   = require('gulp-template');
-var vfs        = require('vinyl-fs');
-var express    = require('express'),
+var combineProperties = require('./tool/combineProperties');
+var bodyParser 				= require('body-parser');
+var template   				= require('gulp-template');
+var vfs        				= require('vinyl-fs');
+var webpack  					= require('webpack');
+var publishConfig 		= require('./build/webpack.publish.config');
+var express    				= require('express'),
 	path = require('path'),
 	app = express(),
 	port = 9123;
@@ -15,7 +18,8 @@ app.post('/create', function (req, res) {
 
 	var info = generateModules(pageInfo.components);
 
-	vfs.src('server/publish/**.*')
+	
+	vfs.src('server/template/**.*')
 		.pipe(template({
       ImportModules: info.ImportModules,
 			Title: pageInfo.title,
@@ -23,8 +27,16 @@ app.post('/create', function (req, res) {
     }))
 		.pipe(vfs.dest('dist/temp/'+tranId+'/'))
 		.on('end', () => {
-			console.log('end')
-			res.end();
+			var config = publishConfig(tranId);
+			webpack(config, (err, stats) => {
+				if(err)  {
+					console.error('error',err);
+				}
+
+				console.log('end');
+
+				res.end();
+			});
 		})
 		.on('error',(e)=>{
 			console.log(e);
@@ -37,14 +49,6 @@ app.get('/api', function (req, res) {
 	res.end();
 });
 
-function combineProperties(properties){
-	var property = {};
-	properties.forEach(p=>{
-		return property[p.propKey] = p.value;
-	})
-	return property;
-}
-
 function generateModules(components) {
 	if (!components || components.length === 0) {
 		return {}
@@ -56,11 +60,12 @@ function generateModules(components) {
 			needImport.push(component.componentName);
 		}
 		var property = combineProperties(component.properties);
-		return `<${component.componentName}  id={'${component.id}'} property={${JSON.stringify(property)}} />`
+		return `<${component.componentName}  id={'${component.id}'} property={${JSON.stringify(property)}} />
+		`
 	})
 
 	var importModules = needImport.map(function (name) {
-		return `import ${name} from '../../client/component/modules/${name}/source'`;
+		return `import ${name} from '../../../client/component/modules/${name}/source'`;
 	})
 	return {
 		ImportModules: importModules.join(';'),
