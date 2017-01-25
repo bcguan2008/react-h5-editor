@@ -75,4 +75,5 @@ function generateModules(components) {
 
 
 app.listen(port);
-console.log('Server is Up and Running at Port : ' + port);
+console.log('Server is Up and Running at Port : http://localhost:' + port);
+console.log('Please open the http://localhost:' + port + '/client/index.html in the browser');

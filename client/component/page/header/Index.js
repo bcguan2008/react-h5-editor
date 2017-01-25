@@ -11,8 +11,8 @@ export default class Header extends Component {
       tranId: 1,
       title: this.props.app.title,
       components: this.props.components
-    }).then(()=>{
-      window.open('/publish/1/index.html');
+    }).then(() => {
+      window.location.href = '/publish/1/index.html';
     });
   }
 
@@ -25,7 +25,7 @@ export default class Header extends Component {
         <div>
 
           <button type="button" onClick={this.save.bind(this) } className="el-button el-button--success">
-            <i className="el-icon-check"></i><span>保存</span></button>
+            <i className="el-icon-check"></i><span>预览</span></button>
         </div>
       </header>
     )
