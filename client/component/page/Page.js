@@ -8,7 +8,7 @@ import componentsActions from '../../actions/components';
 import appActions from '../../actions/app';
 import Header from './header/';
 import Body from './body/'
-
+import { Spin } from 'antd';
 
 class Page extends Component {
   constructor() {
@@ -18,10 +18,12 @@ class Page extends Component {
   render() {
     const {store,components,app} = this.props;
     return (
-      <div>
-        <Header store={store} components={components} app={app}/>
-        <Body store={store} components={components} app={app}/>
-      </div>
+      <Spin tip="Loading" spinning={!!app.loading}> 
+        <div>
+          <Header store={store} components={components} app={app}/>
+          <Body store={store} components={components} app={app}/>
+        </div>
+      </Spin>
     )
   }
 }

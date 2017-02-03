@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 
-import * as appComponents from '../../../../actions/components';
+import * as componentActions from '../../../../actions/components';
 import configureStore from '../../../../store/configureStore';
 
 const store = configureStore({},'APP');
@@ -16,7 +16,7 @@ export default class PropertyInput extends Component {
         value:event.target.value
       }
 
-      store.dispatch(appComponents.ChangeProperty(property));
+      store.dispatch(componentActions.ChangeProperty(property));
 
     },300); */
   }
@@ -34,7 +34,7 @@ export default class PropertyInput extends Component {
       id:this.props.property.id,
       value:event.target.value
     }
-    store.dispatch(appComponents.ChangeProperty(property));
+    store.dispatch(componentActions.ChangeProperty(property));
   }
 
   render() {

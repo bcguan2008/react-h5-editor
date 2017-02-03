@@ -10,7 +10,6 @@ class Body extends Component {
 
   render() {
     const {store,components,app} = this.props;
-    console.log('page/body/index',app)
     return (
       <div className="container">
         <ToolBar store={store} app={app}/>

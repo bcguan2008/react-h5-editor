@@ -1,5 +1,10 @@
 import React, {Component} from 'react';
 import Http from 'axios';
+import * as appActions from '../../../actions/app';
+import configureStore from '../../../store/configureStore';
+
+const store = configureStore({}, 'APP');
+
 
 export default class Header extends Component {
   constructor() {
@@ -7,11 +12,13 @@ export default class Header extends Component {
   }
 
   save() {
+    store.dispatch(appActions.changeLoading(true));
     return Http.post('/create', {
       tranId: 1,
       title: this.props.app.title,
       components: this.props.components
     }).then(() => {
+      store.dispatch(appActions.changeLoading(false));
       window.location.href = '/publish/1/index.html';
     });
   }

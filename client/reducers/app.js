@@ -10,8 +10,11 @@ export default function app(state = initialState,action){
       return Object.assign({},state,{
         title:action.title
       })
+    case types.CHANGE_LOADING:
+      return Object.assign({},state,{
+        loading:action.loading
+      }) 
     default:
       return state;
   }
-
 }
